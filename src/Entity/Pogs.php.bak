@@ -1,0 +1,169 @@
+<?php
+
+namespace App\Entity;
+
+use App\Entity\Pogs;
+use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PogsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity(repositoryClass=PogsRepository::class)
+ */
+class Pogs
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2)
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $imgpath;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=category::class, inversedBy="pogs")
+     */
+    private $products;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Pogs::class, inversedBy="category")
+     */
+    private $pogs;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Pogs::class, mappedBy="pogs")
+     */
+    private $category;
+
+    public function __construct()
+    {
+        $this->category = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getImgpath(): ?string
+    {
+        return $this->imgpath;
+    }
+
+    public function setImgpath(string $imgpath): self
+    {
+        $this->imgpath = $imgpath;
+
+        return $this;
+    }
+
+    public function getProducts(): ?category
+    {
+        return $this->products;
+    }
+
+    public function setProducts(?category $products): self
+    {
+        $this->products = $products;
+
+        return $this;
+    }
+
+    public function getPogs(): ?self
+    {
+        return $this->pogs;
+    }
+
+    public function setPogs(?self $pogs): self
+    {
+        $this->pogs = $pogs;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
+    public function addCategory(self $category): self
+    {
+        if (!$this->category->contains($category)) {
+            $this->category[] = $category;
+            $category->setPogs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(self $category): self
+    {
+        if ($this->category->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getPogs() === $this) {
+                $category->setPogs(null);
+            }
+        }
+
+        return $this;
+    }
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+	pogs
+{% endblock %}
+
+
+{% block body %}
+t<table>
+	{% for p in pogs %}
+
+		<td>
+			<div float="left" name="box" id="leftbox" class="row d-flex justify-content-center text-center">
+				<a class="nav-link" href="{{ path('pog', {id: p.id}) }}">
+					<img src="{{ asset('img/' ~ p.imgpath) }}" alt="pog image" width="100px">
+				</a>
+			</div>
+		</td>
+	</tr>
+</tr></td>{% endfor %}</table>{% endblock %}

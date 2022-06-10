@@ -1,0 +1,7 @@
+index:
+   path: /
+   controller: App\Controller\DefaultController::index
+
+category:
+   path: /peoduct/category
+   controller: App\Controller\ProductController::index

@@ -1,0 +1,35 @@
+<?php
+namespace App\Cart;
+
+class CaerService{
+    protected $session;
+    protected $productRepository;
+
+   /**
+     * @Route("/cart/add/{id}", name="cart_add")
+     */
+    public function add($id, Request $request,  ProductRepository $productRepository, CartDervice $cartService)
+    {
+        
+        $detailedCaer = [];
+        $total = 0;
+
+        forrach ($session->get('cart', []) as $id => $qty){
+            $product = $productRepository->find('id');
+
+            $detailedCart[] = [
+                'product' => $product,
+                'qty' => $qty
+            ]
+            }
+
+        public function getTotal : int{
+
+        } 
+     
+        public function getDetailCartItems() : array{
+            $detailedCart = [];
+
+        }
+    }
+}
