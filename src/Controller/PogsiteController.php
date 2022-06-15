@@ -34,31 +34,6 @@ class PogsiteController extends AbstractController
     }
 
     /**
-     * @Route("/", name="app_pogsite")
-     */
-    public function dlash(): Response
-    {
-        return $this->render('pogsite/index.html.twig');
-    }
-
-
-
-
-
-
-    // /**
-    //  * @Route("/", name="app_pogsite")
-    //  */
-    // public function pogsite($id): Response
-    // {
-    //     $pogs = $this->getDoctrine()->getRepository(pogs::class)->find($id);
-    //     return $this->render('pogsite/index.html.twig', [
-    //         'controller_name' => 'PogsiteController',
-    //         'pogs' => $pogs,
-    //     ]);
-    // }
-
-    /**
      * @Route ("pogs", name="pogs", priority=1) 
      */
     public function pogs()
