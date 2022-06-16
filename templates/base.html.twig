@@ -42,21 +42,12 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/pogsite">Pog Site</a>
+				<a class="navbar-brand" href="/">Pog Site</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarColor01">
 					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('pogs') }}">Pogs</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('vintages') }}">Vintages</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('collectors') }}">Collectors</a>
-						</li>
 						<div class="container">
 							<form class="d-flex">
 								<input class="form-control me-sm-2" type="text" placeholder="Search">
@@ -70,6 +61,11 @@
 							<img src="{{ asset('img/shoppingcart.png') }} " alt="vintage image" width="40px"><br>
 						</li>
 					</ul>
+				</div>
+				<div class="navbar-nav">
+					<a href="{{ path('cart') }}" class="btn btn-light">
+						Cart
+					</a>
 				</div>
 				<div display="flex" justify-content="flex-" class="collapse navbar-collapse" id="navbarColor01">
 					<ul class="navbar-nav me-auto"></div>
