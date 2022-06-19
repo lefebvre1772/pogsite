@@ -55,17 +55,14 @@
 							</form>
 						</div>
 						<a class="nav-link" href="{{ path('register') }}">register</a>
-						<li class="nav-item">
-							<img src="{{ asset('img/shoppingcart.png') }} " alt="vintage image" width="40px"><br>
-						</li>
-					</ul>
-				</div>
-				<div class="navbar-nav">
-					<a href="{{ path('cart') }}" class="btn btn-light">
-						panier
-					</a>
-				</div>
-				<div display="flex" justify-content="flex-" class="collapse navbar-collapse" id="navbarColor01">
-					<ul class="navbar-nav me-auto"></div>
-				</nav>
-				<div class="container" {% block body %} {% endblock %} </div> </div> </nav> </body> </html>
+						<img src="{{ asset('img/shoppingcart.png') }} " alt="vintage image" width="40px"><br>
+					</div>
+					<div class="navbar-nav">
+						<a href="{{ path('cart') }}" class="btn btn-light">
+							panier
+						</a>
+					</div>
+					<div display="flex" justify-content="flex-" class="collapse navbar-collapse" id="navbarColor01">
+						<ul class="navbar-nav me-auto"></div>
+					</nav>
+					<div class="container" {% block body %} {% endblock %} </div> </div> </nav> </body> </html>
