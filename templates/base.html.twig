@@ -41,28 +41,20 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="/">Pog Site</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarColor01">
-					<ul class="navbar-nav me-auto">
-						<div class="container">
-							<form class="d-flex">
-								<input class="form-control me-sm-2" type="text" placeholder="Search">
-								<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-							</form>
-						</div>
-						<a class="nav-link" href="{{ path('register') }}">register</a>
-						<img src="{{ asset('img/shoppingcart.png') }} " alt="vintage image" width="40px"><br>
-					</div>
-					<div class="navbar-nav">
-						<a href="{{ path('cart') }}" class="btn btn-light">
-							panier
-						</a>
-					</div>
+			<a class="navbar-brand" href="/">Pog Site</a>
+			<div class="container">
+				<form class=" d-flex">
+					<input class="form-control me-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				</form>
+
+				<a class="nav-link" href="{{ path('app_register') }}">register</a>
+				{{ dump(is_granted('IS_AUTHENTICATED_REMEMBERED')) }}
+				<div class="navbar-nav">
+					<a href="{{ path('cart') }}" class="btn btn-light">
+						panier
+					</a>
 					<div display="flex" justify-content="flex-" class="collapse navbar-collapse" id="navbarColor01">
 						<ul class="navbar-nav me-auto"></div>
 					</nav>
-					<div class="container" {% block body %} {% endblock %} </div> </div> </nav> </body> </html>
+					<div class="container" </div> </nav> {% block body %} {% endblock %} </body> </html>
