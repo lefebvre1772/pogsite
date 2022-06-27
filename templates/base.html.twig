@@ -28,6 +28,7 @@
 			{% endblock %}
 		</title>
 		<link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -40,7 +41,7 @@
 		{% endblock %}
 	</head>
 	<body>
-		{{ dump(app.request) }}
+		{{ dump(app.user) }}
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<a class="navbar-brand" href="/">Pog Site</a>
 			<div class="container">
@@ -49,11 +50,17 @@
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 				</form>
 				{% if not (is_granted('IS_AUTHENTICATED_REMEMBERED')) %}
-					<a class="nav-link" href="{{ path('app_register') }}">register</a>
-					<a class="nav-link" href="{{ path('app_login') }}">login</a>
+					<a class="btn btn-light" href="{{ path('app_register') }}">register</a>
+					<a class="btn btn-light" href="{{ path('app_login') }}">login</a>
 				{% else %}
-					<a class="nav-link" href="{{ path('app_logout') }}">logout</a>
+					<div class="w3-dropdown-hover">
+						<button class="button">{{ app.user.email }}</button>
+						<div class="w3-dropdown-content w3-bar-block w3-border">
+							<a href="{{ path('app_logout') }}" class="w3-bar-item w3-button">Logout</a>
+						</div>
+					</div>
 				{% endif %}
+
 				<div class="navbar-nav">
 					<a href="{{ path('cart') }}" class="btn btn-light">
 						panier
