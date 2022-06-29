@@ -14,12 +14,11 @@ class ProductFixtures extends Fixture
             $imnum = rand(1, 5);
             $product = new Product();
             $product
-                ->setName('Pog ' . $i)
-                ->setDescription('L dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
-                ->setImgpath("pog$imnum.jpg")
-                ->setPrice(mt_rand(10, 600));
+                ->setTitle('Pog ' . $i)
+                ->setContent('L dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
+                ->setWords(mt_rand(10, 600));
 
-            $manager->persist($product);
+            $manager->persist($data);
         }
 
         $manager->flush();

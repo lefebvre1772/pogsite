@@ -41,9 +41,12 @@
 		{% endblock %}
 	</head>
 	<body>
-		{{ dump(app.request.attributes.get('_route')) }}
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<a class="navbar-brand" href="/">Pog Site</a>
+		{# {% set text = app.request.requestUri %}
+																																																		{{ dump(text.substring(7)) }} #}
+
+		{# {{ dump(app) }} #}
+
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <a class="navbar-brand" href="/">Pog Site</a>
 			{% if (app.request.attributes.get('_route') == "app_blog") %}
 				<li class="nav-item">
 					<a class="btn btn-light" href="{{ path('blog') }}">Articles</a>
@@ -54,8 +57,8 @@
 			{% endif %}
 
 			<div class="container">
-				<form class=" d-flex">
-					<input class="form-control me-sm-2" type="text" placeholder="Search">
+				<form name="searchForm" id="searchForm" action="{{ path('app_search') }}" class=" d-flex" method="GET">
+					<input class="form-control me-sm-2" type="text" name="search" id="search" placeholder="Search">
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 				</form>
 				{% if not (is_granted('IS_AUTHENTICATED_REMEMBERED')) %}

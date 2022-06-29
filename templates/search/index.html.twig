@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	search result
+{% endblock %}
+
+
+{% block body %}
+	<img href="img/pog1.jpg">
+	<h1>Résultat</h1>
+	<div class="container">
+		<div class="row">
+			{% for product in products %}
+				<div class=" card-text">
+					{{ product.name }}Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat eius minus sunt, incidunt molestias inventore explicabo eos ut mollitia consectetur
+				</div>
+				<a href="{{ path('product.detail', {id: product.id}) }}" class="btn btn-dark">details</a>
+			{% endfor %}
+		</div>
+	{% endblock %}
