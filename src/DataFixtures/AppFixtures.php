@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Pogs;
 use App\Entity\User;
+use App\Entity\Article;
 use App\Entity\Vintages;
 use App\Entity\Collectors;
 use Doctrine\Persistence\ObjectManager;
@@ -13,14 +14,6 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i = 1; $i <= 150; $i++) {
-            $user = new User();
-            $user->setEmail("admin$i@gmail.com")
-                ->setRoles([])
-                ->setPassword("password");
-
-            $manager->persist($user);
-        }
 
         for ($i = 1; $i <= 150; $i++) {
             $pog = new Pogs();
@@ -50,6 +43,14 @@ class AppFixtures extends Fixture
                 ->setPrice("5000");
 
             $manager->persist($vintage);
+        }
+
+        for ($i = 1; $i <= 150; $i++) {
+            $article = new Article();
+            $article->setTitle("Article n° $i")
+                ->setContent("Ceci est le pog vintage numéro $i.")
+                ->setImage("vintage$i.jpg");
+            $manager->persist($article);
         }
         $manager->flush();
     }

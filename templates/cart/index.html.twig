@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+	{{ dump() }}
 	<div class="container mt-4">
 		<h1>Votre panier</h1>
 		{% if cart.items.count > 0 %}

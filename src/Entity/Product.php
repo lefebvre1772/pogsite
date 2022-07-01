@@ -37,6 +37,11 @@ class Product
      */
     private $imgpath;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Product
     public function setImgpath(string $imgpath): self
     {
         $this->imgpath = $imgpath;
+
+        return $this;
+    }
+
+    public function getCategory(): ?int
+    {
+        return $this->category;
+    }
+
+    public function setCategory(int $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

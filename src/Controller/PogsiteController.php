@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Pogs;
 use App\Entity\Vintages;
 use App\Entity\Collectors;
+use App\Entity\Product;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +27,7 @@ class PogsiteController extends AbstractController
      */
     public function home($id): Response
     {
-        $pogs = $this->getDoctrine()->getRepository(pogs::class)->find($id);
+        $pogs = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('pogsite/index.html.twig', [
             'controller_name' => 'PogsiteController',
             'pogs' => $pogs,
@@ -38,10 +39,10 @@ class PogsiteController extends AbstractController
      */
     public function pogs()
     {
-        $pogs = $this->getDoctrine()->getRepository(Pogs::class)->findAll();
+        $product = $this->getDoctrine()->getRepository(Product::class)->findAll();
         // dd($pogs);
         return $this->render('pogsite/pogs/pogs2.html.twig', [
-            "pogs" => $pogs
+            "product" => $product
         ]);
     }
 
@@ -50,9 +51,9 @@ class PogsiteController extends AbstractController
      */
     public function pog($id)
     {
-        $pog = $this->getDoctrine()->getRepository(Pogs::class)->find($id);
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('pogsite/pogs/pog.html.twig', [
-            'pog' => $pog
+            'product' => $product
         ]);
     }
 
@@ -61,10 +62,10 @@ class PogsiteController extends AbstractController
      */
     public function vintages()
     {
-        $vintages = $this->getDoctrine()->getRepository(Vintages::class)->findAll();
+        $product = $this->getDoctrine()->getRepository(Product::class)->findAll();
         // dd($vintages);
         return $this->render('pogsite/vintages/vintages.html.twig', [
-            "vintages" => $vintages
+            "product" => $product
         ]);
     }
 
@@ -73,9 +74,9 @@ class PogsiteController extends AbstractController
      */
     public function vintage($id)
     {
-        $vintage = $this->getDoctrine()->getRepository(vintages::class)->find($id);
+        $vintaproductge = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('pogsite/vintages/vintage.html.twig', [
-            'vintage' => $vintage
+            'product' => $product
         ]);
     }
 
@@ -84,10 +85,10 @@ class PogsiteController extends AbstractController
      */
     public function collectors()
     {
-        $collectors = $this->getDoctrine()->getRepository(Collectors::class)->findAll();
+        $product = $this->getDoctrine()->getRepository(Product::class)->findAll();
         // dd($collectors);
         return $this->render('pogsite/collectors/collectors.html.twig', [
-            "collectors" => $collectors
+            "product" => $product
         ]);
     }
 
@@ -96,9 +97,9 @@ class PogsiteController extends AbstractController
      */
     public function collector($id)
     {
-        $collector = $this->getDoctrine()->getRepository(Collectors::class)->find($id);
+        $collector = $this->getDoctrine()->getRepository(Product::class)->find($id);
         return $this->render('pogsite/collectors/collector.html.twig', [
-            'collector' => $collector
+            'product' => $product
         ]);
     }
 }
