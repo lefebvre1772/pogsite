@@ -2,6 +2,29 @@
 <html>
 	<head>
 		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			/* Create three equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 33.33%;
+				padding: 10px;
+				height: 300px; /* Should be removed. Only for demonstration */
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			hr {
+				width: 70%;
+				margin-left: auto;
+				margin-right: auto;
+			}
 			#leftbox {
 				float: left;
 				width: 15%;
@@ -42,7 +65,7 @@
 	</head>
 	<body>
 		{# {% set text = app.request.requestUri %}
-																																																										{{ dump(text.substring(7)) }} #}
+																																																																																																																								{{ dump(text.substring(7)) }} #}
 
 		{# {{ dump(app) }} #}
 
@@ -84,4 +107,61 @@
 					<div display="flex" justify-content="flex-" class="collapse navbar-collapse" id="navbarColor01">
 						<ul class="navbar-nav me-auto"></div>
 					</nav>
-					<div class="container" </div> </nav> {% block body %} {% endblock %} </body> </html> </body> </html>
+					<divCreditsAuthor:hege@example.com</a class="container" </div> </nav> {% block body %} {% endblock %}>
+						{% block footer %}
+							<footer>
+								<style>
+									* {
+										box-sizing: border-box;
+									}
+
+									/* Create three equal columns that floats next to each other */
+									.column {
+										float: left;
+										width: 33.33%;
+										padding: 10px;
+										height: 300px; /* Should be removed. Only for demonstration */
+									}
+
+									/* Clear floats after the columns */
+									.row:after {
+										content: "";
+										display: table;
+										clear: both;
+									}
+								</style>
+								<div class="container">
+									<div class="row">
+										<div class="column" style="background-color:#aaa;">
+											<h2>Column 1</h2>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+
+											<p>Some text..</p>
+										</div>
+										<div class="column" style="background-color:#bbb;">
+											<h2>Column 2</h2>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+										</div>
+										<div class="column" style="background-color:#ccc;">
+											<h2>Column 3</h2>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+											<p>Some text..</p>
+										</div>
+									</div>
+								</div>
+								<hr></hr>
+						</body>
+					</footer>
+				{% endblock %}
+			</body>
+		</body>
+	</body>
+</html></body></html></body></html>
