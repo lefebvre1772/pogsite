@@ -17,7 +17,7 @@ class ProductFixtures extends Fixture
                 ->setName('Pog ' . $i)
                 ->setDescription('Ceci est le pog n° ' . $i)
                 ->setCategory(mt_rand(1, 3))
-                ->setImgpath('pog1.jpg')
+                ->setImgpath('pog' . mt_rand(1, 5) . '.jpg')
                 ->setPrice(mt_rand(10, 600));
 
             $manager->persist($product);

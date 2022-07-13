@@ -65,7 +65,7 @@
 	</head>
 	<body>
 		{# {% set text = app.request.requestUri %}
-																																																																																																																								{{ dump(text.substring(7)) }} #}
+																																																																																																																														{{ dump(text.substring(7)) }} #}
 
 		{# {{ dump(app) }} #}
 
@@ -134,7 +134,9 @@
 									<div class="row">
 										<div class="column" style="background-color:#aaa;">
 											<h2>Column 1</h2>
-											<p>Some text..</p>
+											<p>
+												<a href="{{ path('terms') }}">Terms</a>
+											</p>
 											<p>Some text..</p>
 											<p>Some text..</p>
 											<p>Some text..</p>

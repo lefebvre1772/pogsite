@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	{{ dump() }}
+	{# {{ dump() }} #}
 	<div class="container mt-4">
 		<h1>Votre panier</h1>
 		{% if cart.items.count > 0 %}
@@ -70,7 +70,7 @@
 							</li>
 						</ul>
 						<div class="card-body">
-							<a href="#" class="btn btn-warning w-100">Checkout</a>
+							<a href="{{ path('bank') }}" class="btn btn-warning w-100">Checkout</a>
 						</div>
 					</div>
 				</div>

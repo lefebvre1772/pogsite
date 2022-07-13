@@ -102,4 +102,31 @@ class PogsiteController extends AbstractController
             'product' => $product
         ]);
     }
+
+    /**
+     * @Route ("/terms", name="terms") 
+     */
+    public function terms()
+    {
+        return $this->render('/terms.html.twig');
+    }
+
+    /**
+     * @Route ("/test", name="test") 
+     */
+    public function test()
+    {
+        $collector = $this->getDoctrine()->getRepository(Product::class)->test();
+        return $this->render('/php/test.php', [
+            'product' => $product
+        ]);
+    }
+
+    /**
+     * @Route ("/testing", name="testing") 
+     */
+    public function testing()
+    {
+        return $this->render('/testing/test.html');
+    }
 }

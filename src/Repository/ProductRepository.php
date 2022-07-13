@@ -42,7 +42,7 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[] Returns an array of Product objects
      */
-    public function search($value): array
+    public function search2($value): array
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.name LIKE :val')
@@ -53,13 +53,39 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function search3()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = 'SELECT * FROM product';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        var_dump($stmt->executeStatement($sql));
+        die;
+    }
+
+    public function search($value)
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = "
+        SELECT * FROM product
+        WHERE (name LIKE '%$value%' 
+        OR description LIKE '%$value%')
+            ";
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet->fetchAllAssociative();
+    }
+}
     //    public function findOneBySomeField($value): ?Product
     //    {
-    //        return $this->createQueryBuilder('p')
+        //        return $this->createQueryBuilder('p')
     //            ->andWhere('p.exampleField = :val')
     //            ->setParameter('val', $value)
     //            ->getQuery()
     //            ->getOneOrNullResult()
     //        ;
     //    }
-}

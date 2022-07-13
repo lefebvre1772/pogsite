@@ -33,4 +33,12 @@ class CartController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route ("/bank", name="bank")
+     */
+    public function bank()
+    {
+        return this->render('bank/index.html.twig');
+    }
 }

@@ -8,7 +8,7 @@
 				{% if loop.index in 1..3 %}
 					<div class="col-md-4">
 						<div class="card mb-4">
-							<img src="{{ asset('img/' ~ product.imgpath) }}" alt="{{ product.name }}" class="card-img-top">
+							<a href="{{ path('product.detail', {id: product.id}) }}"><img src="{{ asset('img/' ~ product.imgpath) }}" alt="{{ product.name }}" class="card-img-top"></a>
 							<div class="card-body">
 								<h5 class="card-title">{{ product.name }}</h5>
 								<p class="card-text">Ceci est le

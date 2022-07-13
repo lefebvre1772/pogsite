@@ -22,7 +22,7 @@ class SearchController extends AbstractController
         // $foo = $_GET[search];
         // $request = $this;
         // dump($request);
-        $products = $this->getDoctrine()->getRepository(Product::class)->search('%' . $request->query->get('search') . '%');
+        $products = $this->getDoctrine()->getRepository(Product::class)->search($request->query->get('search'));
         // dump($products);
         return $this->render('search/index.html.twig', [
             'controller_name' => 'SearchController',
